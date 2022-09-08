@@ -1,7 +1,7 @@
-const express = require("express");
+const AdminsModel = require("../models/admin");
+
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
-const AdminsModel = require("../models/admin");
 
 /*
     Super Admin Authorization
@@ -27,7 +27,7 @@ const validateSuperAdmin = async (req, res, next) => {
   } catch (error) {
     res.status(403).json({
       message: "SuperAdmin Verification Failed!",
-      error: error,
+      error,
     });
   }
 };
@@ -56,7 +56,7 @@ const validateAuth = async (req, res, next) => {
   } catch (error) {
     res.status(403).json({
       message: "Admin Authorization Failed!",
-      error: error,
+      error,
     });
   }
 };
@@ -65,11 +65,11 @@ const validateAuth = async (req, res, next) => {
     Admins Avatar Storage
 */
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (_, _, cb) {
     cb(null, "uploads/admins/images");
   },
 
-  filename: function (req, file, cb) {
+  filename: function (_, file, cb) {
     const uniqueSuffix = Math.round(Math.random() * 1e6);
     cb(
       null,
@@ -86,12 +86,17 @@ const adminInput = async (req, res, next) => {
     if (!req.body.password) {
       const admin = await AdminsModel.findOne({ _id: req.admin._id });
 
-      req.admin_data = {
+      const inputData = {
         fullName: req.body.fullName,
         password: admin.password,
         role: req.body.role,
-        avatar: req.file.filename,
       };
+
+      if (req.file) {
+        inputData.avatar = req.file.filename;
+      }
+
+      req.admin_data = inputData;
 
       next();
       return;
@@ -99,12 +104,17 @@ const adminInput = async (req, res, next) => {
 
     const hash = bcrypt.hashSync(req.body.password, 10);
 
-    req.user_data = {
+    const inputData = {
       fullName: req.body.fullName,
       password: hash,
       role: req.body.role,
-      avatar: req.file.filename,
     };
+
+    if (req.file) {
+      inputData.avatar = req.file.filename;
+    }
+
+    req.admin_data = inputData;
 
     next();
   } catch (error) {

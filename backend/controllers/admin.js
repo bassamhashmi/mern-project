@@ -12,22 +12,22 @@ const getAdminData = async (req, res) => {
       username: req.admin.username,
     });
 
-    res.status(200).json({ authorized: true, adminData });
+    res.status(200).json(adminData);
   } catch (error) {
-    res.status(500).json({ message: error });
+    res.status(500).json(error);
   }
 };
 
 /*
     GET | All Admins Data
 */
-const getAllAdmins = async (req, res) => {
+const getAllAdmins = async (_, res) => {
   try {
     const adminsData = await AdminsModel.find();
 
     res.status(200).json(adminsData);
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(404).json(error);
   }
 };
 
@@ -45,18 +45,23 @@ const signUp = async (req, res) => {
 
     const hash = bcrypt.hashSync(password, 10);
 
-    const newAdmin = await AdminsModel.create({
+    const inputData = {
       fullName,
       email,
       username,
       password: hash,
       role,
-      avatar: req.file.filename,
-    });
+    };
 
-    res.status(200).json({ success: true, newAdmin });
+    if (req.file) {
+      inputData.avatar = req.file.filename;
+    }
+
+    const newAdmin = await AdminsModel.create(inputData);
+
+    res.status(200).json(newAdmin);
   } catch (error) {
-    res.status(400).json({ message: error });
+    res.status(400).json(error);
   }
 };
 
@@ -88,9 +93,7 @@ const signIn = async (req, res) => {
     const validate = bcrypt.compareSync(password, admin.password);
 
     if (!validate) {
-      res
-        .status(400)
-        .json({ success: false, message: "Password is incorrect!" });
+      res.status(400).json({ message: "Password is incorrect!" });
       return;
     }
 
@@ -104,7 +107,7 @@ const signIn = async (req, res) => {
       }
     );
 
-    res.status(200).json({ success: true, validate, auth_token, admin });
+    res.status(200).json({ auth_token, admin });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -123,9 +126,9 @@ const update = async (req, res) => {
       returnDocument: "after",
     });
 
-    res.status(200).json({ success: true, updatedAdmin });
+    res.status(200).json(updatedAdmin);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 
@@ -138,7 +141,7 @@ const remove = async (req, res) => {
   try {
     await AdminsModel.findByIdAndRemove(id);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 

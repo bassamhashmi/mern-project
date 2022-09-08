@@ -10,22 +10,22 @@ const getUserData = async (req, res) => {
   try {
     const userData = await UsersModel.findOne({ email: req.user.email });
 
-    res.status(200).json({ authorized: true, userData });
+    res.status(200).json(userData);
   } catch (error) {
-    res.status(500).json({ message: error });
+    res.status(500).json(error);
   }
 };
 
 /*
     GET | All Users Data
 */
-const getAllUsers = async (req, res) => {
+const getAllUsers = async (_, res) => {
   try {
     const usersData = await UsersModel.find();
 
     res.status(200).json(usersData);
   } catch (error) {
-    res.status(404).json({ message: error });
+    res.status(404).json(error);
   }
 };
 
@@ -51,20 +51,23 @@ const signUp = async (req, res) => {
 
     const hash = bcrypt.hashSync(password, 10);
 
-    const newUser = await UsersModel.create({
+    const inputData = {
       fullName,
       username,
       email,
       password: hash,
-      avatar: req.file.filename,
       gender,
       contactDetails,
       shippingAddress,
-    });
+    };
 
-    console.log("newUser > ", newUser);
+    if (req.file) {
+      inputData.avatar = req.file.filename;
+    }
 
-    res.status(200).json({ success: true, newUser });
+    const newUser = await UsersModel.create(inputData);
+
+    res.status(200).json(newUser);
   } catch (error) {
     res.status(400).json({ message: "Error signing up!", error });
   }
@@ -98,9 +101,7 @@ const signIn = async (req, res) => {
     const validate = bcrypt.compareSync(req.body.password, user.password);
 
     if (!validate) {
-      res
-        .status(400)
-        .json({ success: false, message: "Password is incorrect!" });
+      res.status(400).json({ message: "Password is incorrect!" });
       return;
     }
 
@@ -109,9 +110,9 @@ const signIn = async (req, res) => {
       expiresIn: 21600, // 6 hours
     });
 
-    res.status(200).json({ success: true, validate, auth_token, user });
+    res.status(200).json(auth_token);
   } catch (error) {
-    res.status(404).json({ message: error.message });
+    res.status(400).json(error);
   }
 };
 
@@ -128,9 +129,9 @@ const update = async (req, res) => {
       returnDocument: "after",
     });
 
-    res.status(200).json({ success: true, updatedUser });
+    res.status(200).json(updatedUser);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 

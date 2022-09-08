@@ -1,11 +1,12 @@
 const express = require("express");
 
-const AuthenticationController = require("../controllers/adminAuth");
 const {
   validateSuperAdmin,
   validateAuth,
   uploadAvatar,
-} = require("../middlewares/admins");
+} = require("../middlewares/admin");
+
+const AuthenticationController = require("../controllers/admin");
 
 const router = express.Router();
 

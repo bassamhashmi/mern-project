@@ -1,7 +1,7 @@
 const express = require("express");
 const AuthenticationController = require("../controllers/userAuth");
-const { verifyUser, uploadAvatar, userInput } = require("../middlewares/users");
-const { validateSuperAdmin } = require("../middlewares/admins");
+const { verifyUser, uploadAvatar, userInput } = require("../middlewares/user");
+const { validateSuperAdmin } = require("../middlewares/admin");
 
 const router = express.Router();
 

@@ -1,15 +1,16 @@
 const multer = require("multer");
+
 const ProductsModel = require("../models/product");
 
 /*
     Products Image Storage
 */
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (_, _, cb) {
     cb(null, "uploads/products/images");
   },
 
-  filename: function (req, file, cb) {
+  filename: function (_, file, cb) {
     const uniqueSuffix = Math.round(Math.random() * 1e4);
     cb(
       null,
@@ -37,7 +38,7 @@ const findProduct = async (req, res, next) => {
     req.product = product;
     next();
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 

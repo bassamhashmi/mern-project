@@ -10,13 +10,13 @@ const getCart = async (req, res) => {
     const cart = await CartsModel.findOne({ user });
 
     if (cart && cart.items.length > 0) {
-      res.status(200).json({ success: true, cart });
+      res.status(200).json(cart);
       return;
     }
 
     res.status(200).json({ message: "Cart is empty!" });
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 
@@ -45,12 +45,12 @@ const createCart = async (req, res) => {
 
         cart.items[itemIndex] = product;
         await cart.save();
-        res.status(200).json({ success: true, cart });
+        res.status(200).json(cart);
       } else {
         cart.items.push({ productId, variant, quantity });
 
         await cart.save();
-        res.status(200).json({ success: true, cart });
+        res.status(200).json(cart);
       }
     } else {
       //no cart exists, create one
@@ -58,40 +58,33 @@ const createCart = async (req, res) => {
         user,
         items: [{ productId, variant, quantity }],
       });
-      return res.status(201).json({ success: true, newCart });
+      return res.status(201).json(newCart);
     }
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 
 /*
     DELETE | Delete items in cart
 */
-const emptyCart = async (req, res) => {
+const removeItem = async (req, res) => {
   const user = req.user._id;
 
   const productId = req.query.productId;
 
   try {
-    const cart = await CartsModel.findOne({ user });
-
-    const itemIndex = cart.items.indexOf(
-      (item) => item.productId === productId
+    CartsModel.updateOne(
+      { user },
+      { $pull: { items: { productId: productId } } },
+      function (error, data) {
+        if (error) res.status(400).send(error);
+        else res.status(200).json(data);
+      }
     );
-
-    if (itemIndex > -1) {
-      cart.items.splice(itemIndex, 1);
-
-      const myCart = await cart.save();
-
-      res.status(200).json({ success: true, myCart });
-    } else {
-      res.status(404).send("Product not found");
-    }
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 
-module.exports = { getCart, createCart, emptyCart };
+module.exports = { getCart, createCart, removeItem };

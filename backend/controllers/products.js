@@ -3,13 +3,13 @@ const ProductsModel = require("../models/product");
 /*
     GET | Show All Products
 */
-const showAll = async (req, res) => {
+const showAll = async (_, res) => {
   try {
     const products = await ProductsModel.find();
 
-    res.status(200).json({ success: true, products });
+    res.status(200).json(products);
   } catch (error) {
-    res.status(404).json({ success: false, error });
+    res.status(404).json(error);
   }
 };
 
@@ -25,9 +25,9 @@ const showOne = async (req, res) => {
       return;
     }
 
-    res.status(200).json({ success: true, product });
+    res.status(200).json(product);
   } catch (error) {
-    res.status(400).json({ success: false, error });
+    res.status(400).json(error);
   }
 };
 
@@ -52,7 +52,7 @@ const addNew = async (req, res) => {
       title,
       description,
       targetGender,
-      // featuredImage: req.file.filename,
+      featuredImage: req.file.filename,
       variants,
       category,
       vendor,
@@ -61,9 +61,9 @@ const addNew = async (req, res) => {
 
     const product = await newProduct.save();
 
-    res.status(200).json({ success: true, product });
+    res.status(200).json(product);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 
@@ -80,9 +80,9 @@ const update = async (req, res) => {
       returnDocument: "after",
     });
 
-    res.status(200).json({ success: true, updatedProduct });
+    res.status(200).json(updatedProduct);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 
@@ -92,8 +92,9 @@ const update = async (req, res) => {
 const remove = async (req, res) => {
   try {
     await req.product.remove();
+    res.status(200);
   } catch (error) {
-    res.status(400).json({ error: error });
+    res.status(400).json(error);
   }
 };
 

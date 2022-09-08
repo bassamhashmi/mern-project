@@ -2,11 +2,11 @@ const multer = require("multer");
 
 // SET STORAGE
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: function (_, _, cb) {
     cb(null, "uploads/images");
   },
 
-  filename: function (req, file, cb) {
+  filename: function (_, file, cb) {
     const uniqueSuffix = Math.round(Math.random() * 1e4);
     cb(
       null,
