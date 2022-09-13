@@ -103,7 +103,7 @@ const signIn = async (req, res) => {
       { _id: admin._id },
       process.env.ADMIN_JWT_SECRET,
       {
-        expiresIn: 7200, // 120 minutes
+        expiresIn: 21600, // 6 hours
       }
     );
 

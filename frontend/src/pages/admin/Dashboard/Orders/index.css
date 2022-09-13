@@ -1,0 +1,22 @@
+.orders-container {
+  padding-bottom: 20px;
+}
+
+.orders-header-row {
+  display: flex;
+  margin-top: 12vh;
+  align-items: center;
+}
+
+.Polaris-Card .orders-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.orders-head .Polaris-Head {
+  margin-right: 50px;
+}
+
+.Polaris-Card a {
+  text-decoration: none;
+}

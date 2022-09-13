@@ -1,0 +1,23 @@
+.home-container {
+  /* font-family: poppins; */
+  margin-top: 10vh;
+}
+
+.home-container button {
+  background-color: tomato;
+  color: #ffffff;
+  border: none;
+}
+.home-container button:hover {
+  background-color: #feb101;
+  color: #ffffff;
+}
+
+.home-container button:focus {
+  background-color: #d79000;
+  /* box-shadow: #d79000; */
+}
+
+.home-container p {
+  font-size: 22px;
+}

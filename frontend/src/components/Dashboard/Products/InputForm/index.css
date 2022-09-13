@@ -1,0 +1,53 @@
+.product-input-form {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0% 10% 10% 10%;
+  /* overflow: hidden; */
+}
+
+.product-input-form .Polaris-Card {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  padding: 20px;
+  height: fit-content;
+}
+
+.product-input-form .left-col {
+  width: 64%;
+}
+.product-input-form .right-col {
+  margin-top: 5px;
+}
+
+.product-input-form .left-col-card,
+.product-input-form .right-col-card {
+  margin-bottom: 30px;
+}
+.product-input-form .right-col-card .product-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -18px;
+}
+
+.product-variants .variant {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.product-variants {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+  /* align-items: center; */
+}

@@ -37,23 +37,24 @@ const showOne = async (req, res) => {
 const addNew = async (req, res) => {
   try {
     const {
-      creator,
       title,
       description,
-      targetGender,
+      genderSegment,
       variants,
       category,
       vendor,
       status,
     } = req.body;
 
+    const id = req.admin._id;
+
     const newProduct = new ProductsModel({
-      creator,
+      creator: id,
       title,
       description,
-      targetGender,
+      genderSegment,
       featuredImage: req.file.filename,
-      variants,
+      variants: JSON.parse(variants),
       category,
       vendor,
       status,

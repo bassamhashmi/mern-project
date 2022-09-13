@@ -1,0 +1,113 @@
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+.backend {
+  background-color: #f6f6f7;
+  height: 100vh;
+}
+.dashboard-container button {
+  background-color: #2e7d32;
+  border: none;
+}
+
+.dashboard-container button:hover,
+.dashboard-container button:focus {
+  background-color: #1b5e20;
+  outline: 0;
+
+  box-shadow: none !important;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  min-height: 100%;
+  margin-left: 250px;
+  margin-right: 2%;
+  max-width: 100%;
+  padding: 20px 5px 20px 5px;
+
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* margin-left: 50px; */
+  /* font-size: 30rem; */
+}
+
+.dashboard-container h1 {
+  font-size: 22px;
+}
+
+/*
+
+  Products
+
+*/
+
+.settings-header-row,
+.users-header-row {
+  display: flex;
+  margin-top: 12vh;
+  align-items: center;
+}
+
+.Polaris-Card {
+  margin-top: 2%;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  min-width: fit-content;
+}
+.Polaris-Tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding: 20px 0px 0px 50px;
+  /* margin-top: 20px; */
+}
+
+.Polaris-Tabs a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  padding: 0 16px;
+}
+
+.Polaris-Tabs li {
+  padding-bottom: 20px;
+}
+
+.Polaris-Tabs a:hover {
+  border-bottom: 3px solid gainsboro;
+  cursor: pointer;
+}
+.Polaris-Tabs a:focus {
+  border-bottom: 3px solid #2e7d32;
+}
+
+.Polaris-Head {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 50px 5px 50px;
+}
+
+.Polaris-Table {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-around;
+
+  /* border-bottom: 2px solid #e1e3e5; */
+}
+
+.Polaris-Table > tr {
+  /* background-color: aqua; */
+  /* margin: 50px 50px 50px 50px; */
+}

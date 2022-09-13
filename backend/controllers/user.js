@@ -67,7 +67,7 @@ const signUp = async (req, res) => {
 
     const newUser = await UsersModel.create(inputData);
 
-    res.status(200).json(newUser);
+    res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json({ message: "Error signing up!", error });
   }

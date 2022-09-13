@@ -1,0 +1,37 @@
+.shop-container .product-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 320px;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+  margin: 0px 0px 20px 20px;
+  padding: 0px 0px 20px 0px;
+}
+
+.shop-container .product-card h2 {
+  font-size: 22px;
+}
+
+.shop-container .product-card h5 {
+  color: grey;
+  font-size: 14px;
+}
+
+.shop-container .product-card span {
+  color: #ff6347;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.shop-container .product-card .card-btns {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+.shop-container .product-card .card-btns button {
+  padding: 10px 20px 10px 20px;
+}

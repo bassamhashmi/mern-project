@@ -1,0 +1,17 @@
+.profile-container h3 {
+  font-size: 16px;
+  line-height: 15px;
+}
+
+.profile-container a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.profile-container img {
+  border-radius: 50%;
+}
+
+.profile-container .custom-dropdown {
+  display: flex;
+}

@@ -1,0 +1,12 @@
+.trending-products-container {
+  background-color: antiquewhite;
+  padding: 80px 0px 80px 0px;
+}
+.trending-products-container .text-area {
+  text-align: center;
+  padding: 0px 500px 0px 500px;
+}
+.products-carousel-item {
+  display: flex;
+  padding: 80px 80px 80px 80px;
+}

@@ -12,7 +12,7 @@ router.get("/all", ProductsController.showAll);
 router.post(
   "/add",
   validateAuth,
-  uploadProductImage.single("product-featured-image"),
+  uploadProductImage.single("featuredImage"),
   ProductsController.addNew
 );
 
