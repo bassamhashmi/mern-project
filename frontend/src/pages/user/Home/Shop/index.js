@@ -1,17 +1,20 @@
 import React from "react";
 
+import { useProductsDataContext } from "../../../../context/productsContext";
+
 import SearchBar from "../../../../components/Searchbar";
 import PriceRange from "../../../../components/Shop/PriceRange";
 import ProductCard from "../../../../components/Shop/ProductCard";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import imgPlaceholder from "../../../../assets/img/placeholder.png";
 import { Image } from "react-bootstrap";
 
 import "./index.css";
 
-import imgPlaceholder from "../../../../assets/img/placeholder.png";
-
 const Shop = () => {
+  const [productsData, { handleProductsDataChange }] = useProductsDataContext();
+
   return (
     <div className="shop-container">
       <div className="sidebar col-3">
@@ -58,9 +61,9 @@ const Shop = () => {
       </div>
 
       <div className="products-container col-8">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {productsData.map((product) => {
+          return <ProductCard product={product} />;
+        })}
       </div>
     </div>
   );

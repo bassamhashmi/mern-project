@@ -21,7 +21,7 @@ const AddVendor = ({ showModal, handleReFetchVendors, handleCloseModal }) => {
 
     const token = localStorage.getItem("token");
 
-    const url = "http://localhost:3001/api/vendor/add";
+    const url = `${process.env.REACT_APP_API_URL}/api/vendor/add`;
 
     try {
       const response = await fetch(url, {

@@ -71,7 +71,7 @@ const InputForm = ({
 
   const getCategories = async () => {
     try {
-      const api_url = "http://localhost:3001/api/category/all";
+      const api_url = `${process.env.REACT_APP_API_URL}/api/category/all`;
 
       const response = await fetch(api_url, {
         method: "GET",

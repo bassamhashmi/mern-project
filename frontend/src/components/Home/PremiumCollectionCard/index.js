@@ -7,15 +7,19 @@ import imgPlaceholder from "../../../assets/img/placeholder.png";
 
 import "./index.css";
 
-const PremiumCollectionCard = () => {
+const PremiumCollectionCard = ({ product }) => {
   return (
     <div className="premium-collection-card">
       <div className="featured-image">
-        <Image src={imgPlaceholder} width="300px" />
+        <Image
+          src={`${process.env.REACT_APP_API_URL}/backend/uploads/products/images/${product.featuredImage}`}
+          width="300px"
+          height="200px"
+        />
       </div>
       <div className="text-area">
-        <span>Product Category</span>
-        <h3>ProductName</h3>
+        <span>{product.category}</span>
+        <h3>{product.title}</h3>
       </div>
       <div className="button">
         <Button>

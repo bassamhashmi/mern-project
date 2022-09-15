@@ -17,7 +17,7 @@ const Products = () => {
 
   const getProducts = async () => {
     try {
-      const api_url = "http://localhost:3001/api/products/all";
+      const api_url = `${process.env.REACT_APP_API_URL}/api/products/all`;
 
       const response = await fetch(api_url, {
         method: "GET",
@@ -37,7 +37,7 @@ const Products = () => {
 
   const getVendors = async () => {
     try {
-      const api_url = "http://localhost:3001/api/vendor/all";
+      const api_url = `${process.env.REACT_APP_API_URL}/api/vendor/all`;
 
       const response = await fetch(api_url, {
         method: "GET",

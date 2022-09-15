@@ -11,30 +11,30 @@ const Navbar = () => {
     <div className="home">
       <header id="nav-wrapper">
         <nav id="nav">
-          <div class="nav-logo">
+          <div className="nav-logo">
             <a href="#">
               <Image src={mernLogo} width="120px" />
             </a>
           </div>
-          <div class="nav right">
-            <a href="/" class="nav-link active">
-              <span class="nav-link-span">
-                <span class="u-nav">Home</span>
+          <div className="nav right">
+            <a href="/" className="nav-link active">
+              <span className="nav-link-span">
+                <span className="u-nav">Home</span>
               </span>
             </a>
-            <a href="/shop" class="nav-link">
-              <span class="nav-link-span">
-                <span class="u-nav">Shop</span>
+            <a href="/shop" className="nav-link">
+              <span className="nav-link-span">
+                <span className="u-nav">Shop</span>
               </span>
             </a>
-            <a href="#work" class="nav-link">
-              <span class="nav-link-span">
-                <span class="u-nav">Work</span>
+            <a href="#work" className="nav-link">
+              <span className="nav-link-span">
+                <span className="u-nav">Work</span>
               </span>
             </a>
-            <a href="#contact" class="nav-link">
-              <span class="nav-link-span">
-                <span class="u-nav">Contact</span>
+            <a href="#contact" className="nav-link">
+              <span className="nav-link-span">
+                <span className="u-nav">Contact</span>
               </span>
             </a>
           </div>

@@ -25,7 +25,7 @@ const LoginForm = () => {
       password: adminInput.password,
     };
 
-    const url = "http://localhost:3001/api/auth/admin/signin";
+    const url = `${process.env.REACT_APP_API_URL}/api/auth/admin/signin`;
 
     try {
       const response = await fetch(url, {

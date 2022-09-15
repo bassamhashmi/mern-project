@@ -34,7 +34,7 @@ const AddNewProduct = () => {
     formData.append("inventory", product.inventory);
     formData.append("avatar", image);
 
-    const url = "http://localhost:3001/api/admin/products/add";
+    const url = `${process.env.REACT_APP_API_URL}/api/admin/products/add`;
 
     const response = await fetch(url, {
       method: "POST",

@@ -13,7 +13,7 @@ const Customers = () => {
   const getCustomers = async () => {
     const token = localStorage.getItem("token");
     try {
-      const api_url = "http://localhost:3001/api/auth/user/all";
+      const api_url = `${process.env.REACT_APP_API_URL}/api/auth/user/all`;
 
       const response = await fetch(api_url, {
         method: "GET",

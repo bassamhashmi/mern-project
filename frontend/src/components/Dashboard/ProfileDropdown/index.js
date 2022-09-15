@@ -18,7 +18,7 @@ const ProfileDropdown = () => {
     navigate("/admin/login");
   };
   return (
-    <div class="profile-container">
+    <div className="profile-container">
       <div className="my-popup">
         <PopupMenu>
           <button
@@ -96,19 +96,19 @@ const ProfileDropdown = () => {
           </div>
         </PopupMenu>
       </div>
-      {/* <div class="row justify-content-center text-center">
-        <div class="col-md-12">
-          <div class="dropdown custom-dropdown">
+      {/* <div className="row justify-content-center text-center">
+        <div className="col-md-12">
+          <div className="dropdown custom-dropdown">
             {/* <a
               href="#"
               data-toggle="dropdown"
-              class="d-flex align-items-center dropdown-link text-left"
+              className="d-flex align-items-center dropdown-link text-left"
               aria-haspopup="true"
               aria-expanded="false"
               data-offset="0, 20"
             > 
           
-            <div class="profile-pic mr-3">
+            <div className="profile-pic mr-3">
               <Image
                 src={
                   admin.avatar
@@ -119,7 +119,7 @@ const ProfileDropdown = () => {
                 width="50px"
               />
             </div>
-            <div class="profile-info">
+            <div className="profile-info">
               <h3>{admin.fullName}</h3>
               <span>{admin.username}</span>
             </div>

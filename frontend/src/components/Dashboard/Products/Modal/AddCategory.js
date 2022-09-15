@@ -20,7 +20,7 @@ const AddCategory = ({
 
     const token = localStorage.getItem("token");
 
-    const url = "http://localhost:3001/api/category/add";
+    const url = `${process.env.REACT_APP_API_URL}/api/category/add`;
 
     try {
       const response = await fetch(url, {

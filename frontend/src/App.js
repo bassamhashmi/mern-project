@@ -27,11 +27,14 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/api/auth/admin/me", {
-        headers: {
-          auth_token: token,
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/auth/admin/me`,
+        {
+          headers: {
+            auth_token: token,
+          },
+        }
+      );
 
       if (!response.ok) {
         localStorage.removeItem("token");

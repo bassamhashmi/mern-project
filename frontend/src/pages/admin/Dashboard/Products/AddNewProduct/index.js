@@ -96,7 +96,7 @@ const AddNewProduct = () => {
     formData.append("status", product.status);
 
     try {
-      const url = "http://localhost:3001/api/products/add";
+      const url = `${process.env.REACT_APP_API_URL}/api/products/add`;
 
       const response = await fetch(url, {
         method: "POST",

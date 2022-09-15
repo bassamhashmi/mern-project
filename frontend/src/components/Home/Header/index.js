@@ -45,24 +45,24 @@ const Header = () => {
               </div>
               <div className="nav-items">
                 <Link to="/">
-                  <span class="nav-link-span">
-                    <span class="u-nav">Home</span>
+                  <span className="nav-link-span">
+                    <span className="u-nav">Home</span>
                   </span>
                 </Link>
                 <Link to="/shop">
-                  <span class="nav-link-span">
-                    <span class="u-nav">Shop</span>
+                  <span className="nav-link-span">
+                    <span className="u-nav">Shop</span>
                   </span>
                 </Link>
 
                 <Link to="/">
-                  <span class="nav-link-span">
-                    <span class="u-nav">About</span>
+                  <span className="nav-link-span">
+                    <span className="u-nav">About</span>
                   </span>
                 </Link>
                 <Link to="/">
-                  <span class="nav-link-span">
-                    <span class="u-nav">Contact</span>
+                  <span className="nav-link-span">
+                    <span className="u-nav">Contact</span>
                   </span>
                 </Link>
               </div>
