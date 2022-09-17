@@ -1,0 +1,47 @@
+.sectionHero {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 96%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f6f5;
+  border-radius: 60px;
+  margin: 20px 30px 40px 30px;
+}
+.sectionHero .hero-text {
+  width: 120px;
+  margin-left: 40px;
+}
+
+.sectionHero .imageArea {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.sectionHero .hero-text h1 {
+  /* margin-top: 150px; */
+  /* padding: 0px 20px 0px 20px; */
+
+  font-weight: 700;
+  font-stretch: semi-expanded;
+  font-style: normal;
+  font-size: 72px;
+  line-height: 90px;
+  color: #000000;
+}
+
+.hero-text #span-1 {
+  background-color: #feb101;
+  transform: rotate(-4deg);
+  padding: 0px 40px 0px 10px;
+}
+
+.hero-text #span-2 {
+  background-color: tomato;
+  transform: rotate(-4deg);
+  padding: 0px 40px 0px 10px;
+}
